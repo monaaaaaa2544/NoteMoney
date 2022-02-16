@@ -1,16 +1,15 @@
 <template>
     <div>
-stati
+        sta
+        <Nav></Nav>
     </div>
 </template>
 
 <script lang="ts">
 export default {
-    setup () {
-        
-
-        return {}
-    }
+    setup() {
+        return {};
+    },
 }
 </script>
 

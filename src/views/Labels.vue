@@ -1,16 +1,18 @@
 <template>
     <div>
-        Money
+        lab
+        <Nav></Nav>
     </div>
 </template>
 
 <script lang="ts">
+
 export default {
     setup () {
         
 
         return {}
-    }
+    },
 }
 </script>
 

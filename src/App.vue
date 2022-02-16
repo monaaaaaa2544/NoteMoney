@@ -3,14 +3,8 @@
 </script>
 
 <template>
-  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
   <div>
-    <router-view></router-view>
-
-    <router-link to="/money">money</router-link>
-    <router-link to="/labels">labels</router-link>
-    <router-link to="/statistics">statistics</router-link>
-
+        <router-view></router-view>
   </div>
 </template>
 
