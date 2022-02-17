@@ -8,10 +8,17 @@
 
 <script lang="ts">
 
+type Todo={
+    id:number;
+}
+
 
 export default {
     setup () {
         
+        const data=reactive({
+            
+        })
 
         return {}
     }
