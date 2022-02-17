@@ -6,23 +6,12 @@
     </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 
 type Todo={
     id:number;
 }
 
-
-export default {
-    setup () {
-        
-        const data=reactive({
-            
-        })
-
-        return {}
-    }
-}
 </script>
 
 <style lang="scss" scoped>

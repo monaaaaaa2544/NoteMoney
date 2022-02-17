@@ -7,14 +7,8 @@
     </div>
 </template>
 
-<script lang="ts"> 
-export default {
-    setup () {
-        
+<script lang="ts" setup> 
 
-        return {}
-    }
-}
 </script>
 
 <style lang="scss" scoped>

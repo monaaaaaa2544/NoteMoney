@@ -5,15 +5,8 @@
     </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 
-export default {
-    setup () {
-        
-
-        return {}
-    },
-}
 </script>
 
 <style lang="scss" scoped>
