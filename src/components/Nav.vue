@@ -1,19 +1,19 @@
 <template>
     <div class="nav">
         <router-link to="/money">
-            <MoneyIcon>
+            <MoneyIcon class="icon">
                 <use xlink:href="#money" />
             </MoneyIcon>
             记账
         </router-link>
         <router-link to="/labels">
-             <LabelsIcon>
+             <LabelsIcon class="icon">
                 <use xlink:href="#labels" />
             </LabelsIcon>
             标签
         </router-link>
         <router-link to="/statistics">
-             <StatisticsIcon>
+             <StatisticsIcon class="icon">
                 <use xlink:href="#statistics" />
             </StatisticsIcon>
             统计
@@ -28,7 +28,12 @@
 </script>
 
 <style lang="scss" scoped>
-.nav {
-    border: 1px solid rgba(0,0,1)
-    }
+.icon {
+    width: 1em; //em代表跟文字大小有关
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
 </style>
