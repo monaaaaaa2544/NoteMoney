@@ -1,16 +1,29 @@
 <template>
     <div class="nav">
-        <router-link to="/money">记账</router-link>
-        <router-link to="/labels">标签</router-link>
-        <router-link to="/statistics">统计</router-link>
+        <router-link to="/money">
+            <MoneyIcon>
+                <use xlink:href="#money" />
+            </MoneyIcon>
+            记账
+        </router-link>
+        <router-link to="/labels">
+             <LabelsIcon>
+                <use xlink:href="#labels" />
+            </LabelsIcon>
+            标签
+        </router-link>
+        <router-link to="/statistics">
+             <StatisticsIcon>
+                <use xlink:href="#statistics" />
+            </StatisticsIcon>
+            统计
+        </router-link>
+        <div ></div>
     </div>
 </template>
 
 <script lang="ts" setup>
 
-type Todo={
-    id:number;
-}
 
 </script>
 
