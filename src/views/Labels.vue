@@ -1,26 +1,7 @@
 <template>
-    <div class="nav-wrapper">
-        <div class="content">
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-            <p>labels</p>
-
-        </div>
-        <Nav></Nav>
-    </div>
+    <Layout>
+        <p>Labels</p>
+    </Layout>
 </template>
 
 <script lang="ts" setup>
@@ -29,15 +10,4 @@
 
 <style lang="scss" scoped>
 
-.nav-wrapper{
-    border: 1px solid green;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.content{
-    overflow: auto;
-    flex-grow: 1;
-}
 </style>
