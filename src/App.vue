@@ -8,30 +8,19 @@
   </div>
 </template>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-}
+<style lang="scss">
+@import "@/assets/style/helper.scss";
+@import "@/assets/style/reset.scss";
+
 
 body {
-  line-height: 1.5;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  
-  
-}
-
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #333;
+  font-family: $font-hei;
+  font-size: 16px;
+  line-height: 1.5;
 }
+
 </style>

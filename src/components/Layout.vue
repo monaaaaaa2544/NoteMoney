@@ -1,5 +1,5 @@
 <template>
-    <div class="nav-wrapper">
+    <div class="nav-content-wrapper">
         <div class="content">
             <slot />
         </div>
