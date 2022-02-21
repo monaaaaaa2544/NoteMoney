@@ -30,7 +30,7 @@
 nav {
     display: flex;
     box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.25);
-    flex-direction:row;
+    flex-direction: row;
 
     > .item{
         padding: 2px 0;

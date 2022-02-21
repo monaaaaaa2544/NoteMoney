@@ -1,6 +1,6 @@
 <template>
-    <div class="nav-content-wrapper">
-        <div class="content">
+    <div class="layout-wrapper">
+        <div class="content" :class="`${contentClass}-content`">
             <slot />
         </div>
         <Nav />
@@ -9,18 +9,25 @@
 
 <script lang="ts" setup>
 
+const props = withDefaults(defineProps<{
+  contentClass?: string
+}>(), {
+    contentClass: '',
+});
+
+
+
 </script>
 
 <style lang="scss" scoped>
-.nav-wrapper{
-    border: 1px solid green;
+.layout-wrapper{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    > .content{
+        overflow: auto;
+        flex-grow: 1;
+    }
 }
 
-.content{
-    overflow: auto;
-    flex-grow: 1;
-}
 </style>

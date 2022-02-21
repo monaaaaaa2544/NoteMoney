@@ -1,12 +1,14 @@
-<script setup lang="ts">
-
-</script>
 
 <template>
   <div>
+    
         <router-view></router-view>
   </div>
 </template>
+
+<script setup lang="ts">
+    
+</script>
 
 <style lang="scss">
 @import "@/assets/style/helper.scss";
