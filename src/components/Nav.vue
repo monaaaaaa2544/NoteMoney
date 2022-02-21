@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <router-link to="/money">money</router-link>
-        <router-link to="/labels">labels</router-link>
-        <router-link to="/statistics">statistics</router-link>
+    <div class="nav">
+        <router-link to="/money">记账</router-link>
+        <router-link to="/labels">标签</router-link>
+        <router-link to="/statistics">统计</router-link>
     </div>
 </template>
 
@@ -15,5 +15,7 @@ type Todo={
 </script>
 
 <style lang="scss" scoped>
-
+.nav {
+    border: 1px solid rgba(0,0,1)
+    }
 </style>
