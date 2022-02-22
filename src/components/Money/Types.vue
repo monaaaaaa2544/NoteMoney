@@ -1,18 +1,27 @@
 <template>
-            <div class="type">
-               <ul class="types">
-                   <li class="selected">支出</li>
-                    <li>收入</li>
-                </ul>
-            </div>
+    <div class="type">
+        <ul class="types">
+            <li :class="currentType==='-' && 'selected'" @click="selectType('-')">支出</li>
+            <li :class="currentType==='+' && 'selected'" @click="selectType('+')">收入</li>
+        </ul>
+    </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
+
+let currentType: string = ref<string>('-')
+
+function selectType(type:string) {
+    if (type !== '-' && type !== '+') {
+        throw new Error('type is unknow')
+    }
+    currentType.value=type
+}
 
 </script>
 
 <style lang="scss" scoped>
-
 .types {
     background: #c4c4c4;
     display: flex;
@@ -26,7 +35,7 @@
         align-items: center;
         position: relative;
         &.selected::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
