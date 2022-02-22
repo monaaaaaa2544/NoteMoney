@@ -2,13 +2,17 @@
     <div class="note">
         <label class="notes">
             <span class="name">备注</span>
-            <input type="text" placeholder="在这里输入备"/>
+            <input type="text" v-model="value" placeholder="在这里输入备注"/>
         </label>
     </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { ref } from 'vue';
 
+let value: string=ref<string>('')
+
+console.log('sdf')
 </script>
 
 <style lang="scss" scoped>
