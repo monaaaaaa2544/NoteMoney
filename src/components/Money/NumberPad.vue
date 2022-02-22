@@ -1,27 +1,70 @@
 <template>
             <div class="numberPad">
-                <div class="output">100</div>
+                <div class="output">{{output}}</div>
                 <div class="buttons">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button class="remove">删除</button>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button class="clear">清空</button>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
-                    <button class="ok">ok</button>
-                    <button class="zero">0</button>
-                    <button>.</button>
+                    <button @click="inputContent">1</button>
+                    <button @click="inputContent">2</button>
+                    <button @click="inputContent">3</button>
+                    <button @click="remove" class="remove">删除</button>
+                    <button @click="inputContent">4</button>
+                    <button @click="inputContent">5</button>
+                    <button @click="inputContent">6</button>
+                    <button @click="clear" class="clear">清空</button>
+                    <button @click="inputContent">7</button>
+                    <button @click="inputContent">8</button>
+                    <button @click="inputContent">9</button>
+                    <button @click="ok" class="ok">ok</button>
+                    <button @click="inputContent" class="zero">0</button>
+                    <button @click="inputContent">.</button>
                 </div>
             </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
 
+let output:any=ref<any>('0')
+let input:any=''
+
+const emit = defineEmits<{
+    (e: 'update:value', number:number): void
+    (e: 'submit', number:number): void
+}>()
+
+function inputContent(evt: MouseEvent){
+    input = evt.target.innerHTML;
+
+    if(output.value.length===16){return;}
+    if(output.value==='0' && input==='.') {
+        output.value += input
+        return;
+    } else if (output.value==='0' && input!=='.') {
+        output.value=input
+        return;
+    }
+    if(output.value.indexOf('.')>=0 && input==='.') {return;} //保证没有两个小数点
+    output.value+=input
+}
+
+function remove(){
+    if(output.value.length===1){
+        output.value='0'
+    } else {
+        output.value=output.value.slice(0,-1)
+    }
+}
+
+function clear(){
+    output.value='0'
+}
+
+function ok(){
+    const number:number=parseFloat(output.value)
+    emit('update:value', number)
+    emit('submit', number)
+    output.value='0'
+
+}
 </script>
 
 <style lang="scss" scoped>

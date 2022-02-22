@@ -19,6 +19,7 @@ function selectType(type:string) {
     currentType.value=type
 }
 
+
 </script>
 
 <style lang="scss" scoped>
