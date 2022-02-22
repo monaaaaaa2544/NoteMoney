@@ -9,6 +9,7 @@ import MoneyIcon from '@/assets/icons/money.svg'
 import StatisticsIcon from '@/assets/icons/statistics.svg'
 
 
+
 const app=createApp(App)
 
 app.component('Nav', Nav)

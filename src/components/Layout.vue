@@ -1,6 +1,6 @@
 <template>
     <div class="layout-wrapper">
-        <div class="content" :class="`${contentClass}-content`">
+        <div class="content" :class="`${contentPrefix}-content`">
             <slot />
         </div>
         <Nav />
@@ -10,9 +10,9 @@
 <script lang="ts" setup>
 
 const props = withDefaults(defineProps<{
-  contentClass?: string
+  contentPrefix?: string
 }>(), {
-    contentClass: '',
+    contentPrefix: '',
 });
 
 
