@@ -1,9 +1,10 @@
 <template>
        <Layout content-prefix="layout">
-           <NumberPad />
-           <Types />
+           <NumberPad @submit="saveRecord" />
+           <Types :value.sync="record.type" />
            <Notes />
-           <Tags />
+           <Tags  />
+           <!-- @update:value -->
        </Layout>
 </template>
 
@@ -12,6 +13,18 @@ import NumberPad from '@/components/Money/NumberPad.vue'
 import Types from '@/components/Money/Types.vue'
 import Notes from '@/components/Money/Notes.vue'
 import Tags from '@/components/Money/Tags.vue'
+import { ref, reactive } from 'vue';
+
+
+let record = reactive({
+    tags: [],
+    notes: '', 
+    type: '-',
+    amount: 0
+}) 
+
+function saveRecord(){}
+
 
 </script>
 
