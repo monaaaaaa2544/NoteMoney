@@ -27,8 +27,8 @@ let output:any=ref<any>('0')
 let input:any=''
 
 const emit = defineEmits<{
-    (e: 'update:value', number:number): void
-    (e: 'submit', number:number): void
+    (e: 'update:amount', number:number): void
+    (e: 'submit'): void
 }>()
 
 function inputContent(evt: MouseEvent){
@@ -60,10 +60,9 @@ function clear(){
 
 function ok(){
     const number:number=parseFloat(output.value)
-    emit('update:value', number)
-    emit('submit', number)
+    emit('update:amount', number)
+    emit('submit')
     output.value='0'
-
 }
 </script>
 

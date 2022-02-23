@@ -2,7 +2,7 @@
     <div class="note">
         <label class="notes">
             <span class="name">备注</span>
-            <input type="text" v-model="value" placeholder="在这里输入备注"/>
+            <input type="text" v-model="value" @input="InputNotes" placeholder="在这里输入备注"/>
         </label>
     </div>
 </template>
@@ -10,9 +10,15 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-let value: string=ref<string>('')
+let value=ref<string>('')
 
-console.log('sdf')
+const emit = defineEmits<{
+    (e: 'update:notes', value: string): void
+}>()
+
+function InputNotes(){
+    emit('update:notes', value.value);
+}
 </script>
 
 <style lang="scss" scoped>

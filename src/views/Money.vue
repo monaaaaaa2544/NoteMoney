@@ -1,10 +1,9 @@
 <template>
        <Layout content-prefix="layout">
-           <NumberPad @submit="saveRecord" />
-           <Types :value.sync="record.type" />
-           <Notes />
-           <Tags  />
-           <!-- @update:value -->
+           <NumberPad v-model:amount="record.amount" @submit="saveRecord(record)" />
+           <Types v-model:types="record.type" />
+           <Notes v-model:notes="record.notes" />
+           <Tags v-model:tags="record.tags" />
        </Layout>
 </template>
 
@@ -15,16 +14,16 @@ import Notes from '@/components/Money/Notes.vue'
 import Tags from '@/components/Money/Tags.vue'
 import { ref, reactive } from 'vue';
 
-
 let record = reactive({
     tags: [],
     notes: '', 
     type: '-',
-    amount: 0
-}) 
+    amount: 0,
+});
 
-function saveRecord(){}
+function saveRecord(record: any) {
 
+}
 
 </script>
 

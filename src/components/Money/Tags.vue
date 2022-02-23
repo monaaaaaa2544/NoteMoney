@@ -17,7 +17,7 @@
 import {ref, reactive} from 'vue'
 
 // store 中拿数据
-let tagList=reactive([
+let tagList=reactive<any>([
     {id: 0, name: '衣'},
     {id: 1, name: '食'},
     {id: 2, name: '住'},
@@ -27,7 +27,12 @@ let tagList=reactive([
 ]) 
 let selectedTags=reactive([])
 
-function toggle(tag: string) {
+const emit = defineEmits<{
+    (event: 'update:tags', tags: any): void
+}>()
+
+
+function toggle(tag: any) {
     const index = selectedTags.indexOf(tag)
 
     if(index>=0) {
@@ -35,7 +40,7 @@ function toggle(tag: string) {
     }else {
         selectedTags.push(tag)// 选中
     }
-    // emit
+    emit('update:tags', selectedTags)
 }
 
 function createTag() {
