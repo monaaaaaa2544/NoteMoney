@@ -12,25 +12,37 @@ import NumberPad from '@/components/Money/NumberPad.vue'
 import Types from '@/components/Money/Types.vue'
 import Notes from '@/components/Money/Notes.vue'
 import Tags from '@/components/Money/Tags.vue'
-import { ref, reactive } from 'vue';
+import { ref, reactive, watch } from 'vue';
 
+type Record = {
+    tags: string[]
+    notes: string
+    type: string
+    amount: string
+    createAt?: Date
+}
+
+let recordList = reactive<any>(JSON.parse(localStorage.getItem("recordList") || '[]'))
 let record = reactive({
     tags: [
         {id: 0, name: '衣'},
         {id: 1, name: '食'},
-        {id: 2, name: '住'},
-        {id: 3, name: '行'},
-        {id: 4, name: 'wow'},
-        {id: 5, name: 'yes'},
     ],
     notes: '', 
     type: '+',
-    amount: "9",
+    amount: "0"
 });
 
-function saveRecord(record: any) {
 
+function saveRecord(record: any) {
+    let copy_record: Record = JSON.parse(JSON.stringify(record))
+    record.createAt=new Date()
+    recordList.push(copy_record)
 }
+
+watch(record, (newValue, oldValue)=>{
+    localStorage.setItem('recordList', JSON.stringify(recordList))
+})
 
 </script>
 
