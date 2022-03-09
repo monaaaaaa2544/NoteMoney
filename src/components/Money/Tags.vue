@@ -17,15 +17,12 @@
 import {ref, reactive} from 'vue'
 
 // store 中拿数据
-let tagList=reactive<any>([
-    {id: 0, name: '衣'},
-    {id: 1, name: '食'},
-    {id: 2, name: '住'},
-    {id: 3, name: '行'},
-    {id: 4, name: 'wow'},
-    {id: 5, name: 'yes'},
-]) 
+let tagList=reactive<any>(props.tags) 
 let selectedTags=reactive([])
+
+const props = defineProps({
+    tags: Array
+})
 
 const emit = defineEmits<{
     (event: 'update:tags', tags: any): void

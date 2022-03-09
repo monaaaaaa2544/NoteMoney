@@ -1,7 +1,7 @@
 <template>
        <Layout content-prefix="layout">
            <NumberPad v-model:amount="record.amount" @submit="saveRecord(record)" />
-           <Types v-model:types="record.type" />
+           <Types v-model:type="record.type" />
            <Notes v-model:notes="record.notes" />
            <Tags v-model:tags="record.tags" />
        </Layout>
@@ -15,10 +15,17 @@ import Tags from '@/components/Money/Tags.vue'
 import { ref, reactive } from 'vue';
 
 let record = reactive({
-    tags: [],
+    tags: [
+        {id: 0, name: '衣'},
+        {id: 1, name: '食'},
+        {id: 2, name: '住'},
+        {id: 3, name: '行'},
+        {id: 4, name: 'wow'},
+        {id: 5, name: 'yes'},
+    ],
     notes: '', 
-    type: '-',
-    amount: 0,
+    type: '+',
+    amount: "9",
 });
 
 function saveRecord(record: any) {

@@ -10,7 +10,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-let value=ref<string>('')
+let value=ref<string>(props.notes)
+
+const props = defineProps({
+    notes: String
+})
 
 const emit = defineEmits<{
     (e: 'update:notes', value: string): void

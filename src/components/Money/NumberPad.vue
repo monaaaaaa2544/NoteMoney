@@ -23,8 +23,12 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-let output:any=ref<any>('0')
-let input:any=''
+let output=ref<string>(props.amount)
+let input=''
+
+const props=defineProps({
+    amount: Number,
+})
 
 const emit = defineEmits<{
     (e: 'update:amount', number:number): void

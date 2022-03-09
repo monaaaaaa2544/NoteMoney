@@ -10,10 +10,14 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-let currentType = ref<string>('-')
+let currentType = ref<string>(props.type)
+
+const props=defineProps({
+    type: String
+})
 
 const emit=defineEmits<{
-    (event: 'update:types', types: string): void
+    (event: 'update:type', types: string): void
 }>()
 
 function selectType(type:string) {
@@ -21,7 +25,7 @@ function selectType(type:string) {
         throw new Error('type is unknow')
     }
     currentType.value=type
-    emit('update:types', currentType.value)
+    emit('update:type', currentType.value)
 }
 
 
