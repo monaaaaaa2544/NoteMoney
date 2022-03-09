@@ -13,16 +13,10 @@ import Types from '@/components/Money/Types.vue'
 import Notes from '@/components/Money/Notes.vue'
 import Tags from '@/components/Money/Tags.vue'
 import { ref, reactive, watch } from 'vue';
+import model from '@/model';
 
-type Record = {
-    tags: string[]
-    notes: string
-    type: string
-    amount: string
-    createAt?: Date
-}
 
-let recordList = reactive<any>(JSON.parse(localStorage.getItem("recordList") || '[]'))
+let recordList = reactive<RecordItem[]>(model.fetch())
 let record = reactive({
     tags: [
         {id: 0, name: '衣'},
@@ -35,13 +29,13 @@ let record = reactive({
 
 
 function saveRecord(record: any) {
-    let copy_record: Record = JSON.parse(JSON.stringify(record))
+    let copy_record: RecordItem = model.clone(record);
     record.createAt=new Date()
     recordList.push(copy_record)
 }
 
 watch(record, (newValue, oldValue)=>{
-    localStorage.setItem('recordList', JSON.stringify(recordList))
+    model.save(recordList)
 })
 
 </script>
