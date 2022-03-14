@@ -23,12 +23,13 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-let output=ref<string>(props.amount)
+const props=defineProps({
+    amount: String,
+})
+
+let output=ref<string | undefined>(props.amount)
 let input=''
 
-const props=defineProps({
-    amount: Number,
-})
 
 const emit = defineEmits<{
     (e: 'update:amount', number:number): void

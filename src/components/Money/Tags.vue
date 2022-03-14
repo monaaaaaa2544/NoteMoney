@@ -4,9 +4,9 @@
                     <button @click="createTag">新增标签</button>
                 </div>
                  <ul class="current">
-                     <li v-for="tag in tagList" :key="tag.id"
-                            :class="{selected: selectedTags.indexOf(tag)>=0}"
-                            @click="toggle(tag)">
+                     <li v-for="tag in props.tags" :key="tag.id"
+                            :class="{selected: props.selectTagsName.indexOf(tag.name)>=0}"
+                            @click="toggle">
                         {{tag.name}}
                      </li>
                 </ul>
@@ -16,28 +16,32 @@
 <script lang="ts" setup>
 import {ref, reactive} from 'vue'
 
-// store 中拿数据
-let tagList=reactive<any>(props.tags) 
-let selectedTags=reactive([])
+
 
 const props = defineProps({
-    tags: Array
+    tags: Array,
+    selectTagsName: Array
 })
 
+// store 中拿数据
+// const selectedTagsName=reactive<string[]>([])
+
 const emit = defineEmits<{
-    (event: 'update:tags', tags: any): void
+    (event: 'update:tags', tags: Tag[]): void
 }>()
 
 
-function toggle(tag: any) {
-    const index = selectedTags.indexOf(tag)
+function toggle(evt: MouseEvent) {
+    let selectTagName= evt.target.innerHTML
+    const index = props.selectTagsName.indexOf(selectTagName)
 
     if(index>=0) {
-        selectedTags.splice(index, 1) //取消选中
+       props.selectTagsName.splice(index, 1) //取消选中
     }else {
-        selectedTags.push(tag)// 选中
+        props.selectTagsName.push(selectTagName)// 选中
     }
-    emit('update:tags', selectedTags)
+    // emit('update:tags', selectedTagsName)
+
 }
 
 function createTag() {
@@ -45,10 +49,12 @@ function createTag() {
     if(name===''){
         window.alert('标签名不能为空')
     }else{//push to tag list
-        tagList.push({
-            id: tagList.length,
-            name: name
-        }) 
+        if(props.tags){
+            props.tags.push({
+                id: props.tags.length,
+                name: name
+            }) 
+        }
     }
 }
 

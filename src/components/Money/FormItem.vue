@@ -1,27 +1,26 @@
 <template>
     <div class="note">
         <label class="notes">
-            <span class="name">备注</span>
-            <input type="text" v-model="value" @input="InputNotes" placeholder="在这里输入备注"/>
+            <span class="name">{{props.fieldName}}</span>
+            <input type="text" :value="props.notes" @input="handleInput" :placeholder="props.placeholder"/>
         </label>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-
-let value=ref<string>(props.notes)
-
 const props = defineProps({
-    notes: String
+    notes: String,
+    fieldName: String,
+    placeholder: String,
 })
+
 
 const emit = defineEmits<{
     (e: 'update:notes', value: string): void
 }>()
 
-function InputNotes(){
-    emit('update:notes', value.value);
+function handleInput(event: Event){
+    emit('update:notes', (event.target as HTMLInputElement).value || '');
 }
 </script>
 
